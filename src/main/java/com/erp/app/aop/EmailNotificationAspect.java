@@ -20,7 +20,7 @@ public class EmailNotificationAspect {
     public void afterSuccessfulRegistration(RegisterUserDataDTO userDTO, Object result) {
         // Only send if the result is successful (UserService returns a success string)
         if (result instanceof String && ((String) result).contains("Successfully")) {
-            String subject = "Welcome to Agrawal Society!";
+            String subject = "Welcome to Bari Agrawal Society!";
             String body = "Hello,\n\nYour account has been successfully created. Welcome to the community!\n\nRegards,\nAgrawal Society Team";
             emailService.sendEmail(userDTO.getEmail(), subject, body);
         }
@@ -32,7 +32,7 @@ public class EmailNotificationAspect {
         // succeeded
         String subject = "New Login Detected";
         String body = "Hello,\n\nA new login was detected on your account at " + new java.util.Date()
-                + ".\n\nIf this wasn't you, please secure your account.\n\nRegards,\nAgrawal Society Team";
+                + ".\n\nIf this wasn't you, please secure your account.\n\nRegards,\nAgrawal Society Team, Bari";
         emailService.sendEmail(loginDTO.getEmail(), subject, body);
     }
 }
