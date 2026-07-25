@@ -1,6 +1,7 @@
 package com.erp.app.aop;
 
 import org.aspectj.lang.annotation.AfterReturning;
+
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,7 +27,7 @@ public class EmailNotificationAspect {
         }
     }
 
-    @AfterReturning(pointcut = "execution(* com.erp.app.controllers.UserController.login(..)) && args(loginDTO)", returning = "token")
+    @AfterReturning(pointcut = "execution(* com.erp.app.service.UserService.loginUserRequest(..)) && args(loginDTO)", returning = "token")
     public void afterSuccessfulLogin(LoginUserDataDTO loginDTO, String token) {
         // If execution reached here, it means authenticationManager.authenticate()
         // succeeded

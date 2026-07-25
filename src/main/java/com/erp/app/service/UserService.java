@@ -128,7 +128,7 @@ public class UserService {
 		}
 
 		String otp = otpService.generateOtp(email);
-		emailService.sendEmail(email, "Password Reset OTP", "Your OTP to reset your password is: " + otp + "\nvalid for 5 minutes.");
+		emailService.sendEmail(email, "Password Reset OTP", "Hello, Your OTP to reset your password is: " + otp + "\nvalid for 5 minutes.");
 		return "OTP has been sent to your email";
 	}
 
