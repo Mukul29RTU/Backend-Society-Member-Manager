@@ -26,7 +26,7 @@ public class EmailNotificationAspect {
         }
     }
 
-    @AfterReturning(pointcut = "execution(* com.erp.app.service.UserService.loginUserRequest(..)) && args(loginDTO)", returning = "token")
+    @AfterReturning(pointcut = "execution(* com.erp.app.controllers.UserController.login(..)) && args(loginDTO)", returning = "token")
     public void afterSuccessfulLogin(LoginUserDataDTO loginDTO, String token) {
         // If execution reached here, it means authenticationManager.authenticate()
         // succeeded
